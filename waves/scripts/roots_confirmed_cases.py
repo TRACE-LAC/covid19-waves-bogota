@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thr Jul 06 2022
 @author: davidsantiagoquevedo
 @author: ntorresd
 """
@@ -8,19 +7,16 @@ import sys
 import yaml
 import pandas as pd
 import matplotlib.pyplot as plt
-import subprocess
 
 b=10 # Gaussian kernel width
-waves = True
 
-ymlfile = open("config.yml", "r")
-cfg = yaml.load(ymlfile)
-config = cfg["default"]
+config = yaml.load(open("config.yml", "r"))["default"]
 
 DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'waves')
 FIG_PATH = config['PATHS']['FIG_PATH'].format(dir = 'waves')
 UTILS_PATH = config['PATHS']['UTILS_PATH'].format(dir = 'waves')
+UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 
 plt.style.use(config['PATHS']['PLOT_STYLE'])
 prop_cycle = plt.rcParams['axes.prop_cycle']
@@ -30,7 +26,7 @@ sys.path.append(UTILS_PATH)
 import utilities_waves as ut
 
 # Confirmed cases
-df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases.csv')
+df_confirmed_bogota = pd.read_csv(DATA_PATH + f'confirmed_cases_{UPDATE}.csv')
 df_confirmed_bogota['onset'] = pd.to_datetime(df_confirmed_bogota['onset'], errors='coerce')
 
 # Data processing

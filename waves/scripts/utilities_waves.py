@@ -1,21 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thr Jul 06 2022
 @author: davidsantiagoquevedo
 @author: ntorresd
 """
 import yaml
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-from time import time
-import subprocess
 
-
-
-ymlfile = open("config.yml", "r")
-cfg = yaml.load(ymlfile)
-config = cfg["default"]
+config = yaml.load(open("config.yml", "r"))["default"]
 
 DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'waves')
