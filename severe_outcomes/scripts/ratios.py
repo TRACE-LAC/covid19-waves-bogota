@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov 29 2022
 @author: davidsantiagoquevedo
 @author: ntorresd
 """
@@ -10,16 +9,16 @@ import pandas as pd
 from statsmodels.stats.proportion import proportion_confint
 
 config = yaml.load(open("config.yml", "r"))["default"]
-
 DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'severe_outcomes')
 SCRIPTS_PATH = config['PATHS']['SCRIPTS_PATH'].format(dir = 'severe_outcomes')
 UTILS_PATH = config['PATHS']['UTILS_PATH'].format(dir = 'severe_outcomes')
+UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 
 # Import useful functions
 sys.path.append(UTILS_PATH)
 import utilities_severity as ut
-df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases_waves.csv')
+df_confirmed_bogota = pd.read_csv(DATA_PATH + f'confirmed_cases_waves_{UPDATE}.csv')
 
 # Change age groups
 age_group_dic={'0-9':[0,9],
@@ -192,5 +191,5 @@ for col in rates:
     cases_wave[col] = cases_wave[col].fillna(0)
     cases_wave[col+'_lower'] = cases_wave[col+'_lower'].fillna(0)
     cases_wave[col+'_upper'] = cases_wave[col+'_upper'].fillna(0)
-    
+
 cases_wave.to_csv(OUT_PATH + 'ratios.csv', index = False)

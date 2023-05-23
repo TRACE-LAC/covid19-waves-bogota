@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thr Jul 31 2022
 @author: davidsantiagoquevedo
 @author: ntorresd
 """
-
 import sys
 import yaml
 import pandas as pd
@@ -16,11 +14,6 @@ config = yaml.load(open("config.yml", "r"))["default"]
 DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'severe_outcomes')
 UTILS_PATH = config['PATHS']['UTILS_PATH'].format(dir = 'severe_outcomes')
-
-# Plot style
-plt.style.use(config['PATHS']['PLOT_STYLE'])
-prop_cycle = plt.rcParams['axes.prop_cycle']
-colors = prop_cycle.by_key()['color']
 
 # Import useful functions
 sys.path.append(UTILS_PATH)

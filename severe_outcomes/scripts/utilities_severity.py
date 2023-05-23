@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thr Jul 06 2022
 @author: davidsantiagoquevedo
 @author: ntorresd
 """

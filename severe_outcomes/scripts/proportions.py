@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thr Jul 31 2022
 @author: davidsantiagoquevedo
 @author: ntorresd
 """
-
 import sys
 import yaml
 import pandas as pd
@@ -18,19 +16,12 @@ DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'severe_outcomes')
 OUT_PATH_WAVES = config['PATHS']['OUT_PATH'].format(dir = 'waves')
 UTILS_PATH = config['PATHS']['UTILS_PATH'].format(dir = 'severe_outcomes')
-
-# Plot style
-plt.style.use(config['PATHS']['PLOT_STYLE'])
-prop_cycle = plt.rcParams['axes.prop_cycle']
-colors = prop_cycle.by_key()['color']
+UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 
 # Import useful functions
 sys.path.append(UTILS_PATH)
 import utilities_severity as ut
-
-# Read data
-df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases_waves.csv')
-
+df_confirmed_bogota = pd.read_csv(DATA_PATH + f'confirmed_cases_waves_{UPDATE}.csv')
 df_hosp = pd.read_csv(DATA_PATH+'hosp_waves_bog.csv')
 df_icu = pd.read_csv(DATA_PATH+'icu_waves_bog.csv')
 df_death = pd.read_csv(DATA_PATH+'death_waves_bog.csv')
