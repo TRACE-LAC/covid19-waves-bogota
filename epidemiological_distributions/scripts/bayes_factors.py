@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Nov 23 2022
 Adapted from: https://github.com/mrc-ide/Brazil_COVID19_distributions
 @author: davidsantiagoquevedo
 @author: ntorresd
@@ -10,7 +9,6 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 import matplotlib.pyplot as plt
-import subprocess
 
 strat='wave'
 
@@ -40,7 +38,6 @@ params = ['beta']
 
 # 1. Prepare the data
 all_dfs, columns = ut.prepare_confirmed_cases_data()
-
 
 ##############################################################################
 # print n samples and range of data

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Nov 20 2022
 Adapted from: https://github.com/mrc-ide/Brazil_COVID19_distributions
 @author: davidsantiagoquevedo
 @author: ntorresd
@@ -267,4 +266,3 @@ def q025(x):
 
 def q975(x):
     return x.quantile(0.975)
-
