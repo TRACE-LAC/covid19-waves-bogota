@@ -14,3 +14,6 @@ data/*
 
 # VS Code files
 .vscode/*
+
+# Control ou files
+nohup*
