@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct 12 2022
 Adapted from: https://github.com/mrc-ide/Brazil_COVID19_distributions
 @author: davidsantiagoquevedo
 @author: ntorresd
@@ -26,7 +25,7 @@ dist_posteriors = ut.load_samples(stats)
 
 # 2. Run best models
 df_best_models = ut.best_model()
-df_best_models = df_best_models.set_index(df_best_models.columns[0]).transpose()
+df_best_models = df_best_models.transpose()
 
 # Mean - best models
 def get_mean_best(dist, df_best_models):
@@ -162,6 +161,7 @@ def get_var_observed(all_dfs, dist):
     return pd.DataFrame(df_result)
 
 df_res = pd.DataFrame({})
+
 dist = 'hosp_stay'
 df_res = pd.concat([df_res, get_mean_best(dist, df_best_models), get_mean_observed(all_dfs, dist), get_var_best(dist, df_best_models), get_var_observed(all_dfs, dist)])
 dist = 'icu_stay'
