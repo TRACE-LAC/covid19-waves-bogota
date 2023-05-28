@@ -16,7 +16,7 @@ DATES = config['WAVES']['ROOTS']
 
 df_roots = pd.read_csv(OUT_PATH + 'roots_confirmed_cases.csv')
 
-df_waves = pd.DataFrame({'date': [pd.to_datetime('2020-03-01')]})
+df_waves = pd.DataFrame({'date': [pd.to_datetime('2020-02-26')]})
 df_waves = pd.concat([df_waves, df_roots.iloc[DATES]])
 df_waves['date'] = pd.to_datetime(df_waves['date']).dt.date
 df_waves['wave'] = [1, 1, 2, 2, 3, 3, 4, 4]
