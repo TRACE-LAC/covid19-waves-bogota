@@ -17,12 +17,13 @@ DATA_PATH = config['PATHS']['DATA_PATH']
 WAVES_PATH = config['PATHS']['OUT_PATH'].format(dir = 'waves')
 RT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'rt')
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'tables')
+UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 
 # Waves information
 df_waves = pd.read_csv(WAVES_PATH + "waves.csv")
 df_waves.set_index("wave", inplace = True)
 # Confirmed cases waves
-df_confirmed = pd.read_csv(DATA_PATH + "confirmed_cases_waves.csv")
+df_confirmed = pd.read_csv(DATA_PATH + f'confirmed_cases_waves_{UPDATE}.csv')
 # Outcomes waves
 df_hosp = pd.read_csv(DATA_PATH + "hosp_waves_bog.csv")
 df_icu = pd.read_csv(DATA_PATH + "icu_waves_bog.csv")
