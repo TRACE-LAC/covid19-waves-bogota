@@ -31,11 +31,11 @@ axi.set_title('a.')
 
 axi = ax[0][1]
 overview.plot_pyramid(ax = axi)
-axi.set_xlim(left=-260000)
+axi.set_xlim(left=-270000)
 axi.set_xlabel('Cases')
 axi.set_ylabel('Age group')
 axi.set_title('b.')
-axi.legend()  
+axi.legend(loc = 'upper left')  
 
 axi = ax[1][0]
 results_rt.plot_rt(ax = axi)

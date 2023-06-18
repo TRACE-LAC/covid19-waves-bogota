@@ -97,7 +97,7 @@ def plot_cases_death_cum(ax):
         ax.tick_params(axis='x', rotation=90)
         ax.set_ylabel('Confirmed cases')
 
-        ax_twin.legend(lns, labs, loc='upper left', frameon=False, fontsize=12)
+        ax_twin.legend(lns, labs, loc='upper left', frameon=False, fontsize=10)
         ax_twin.spines.right.set_visible(True) #This was set as False by default in the .mpstyle file
         ax_twin.tick_params(axis='x', rotation=90)
         ax_twin.set_ylabel('Deaths')

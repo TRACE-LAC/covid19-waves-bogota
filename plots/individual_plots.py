@@ -182,19 +182,19 @@ fig.savefig(FIG_PATH + 'distributions.png')
 #################################### ####################################
 import results_severe_outcomes as results_severe_outcomes
 
-fig, ax = plt.subplots(1, 3, figsize=(12, 4))
-results_severe_outcomes.plot_percentage(ax)
-ax[0].set_ylabel('Hospitalization percentage by age')
-ax[1].set_ylabel('ICU percentage by age')
-ax[2].set_ylabel('Death percentage by age')
-ax[0].set_title('a.')
-ax[1].set_title('b.')
-ax[2].set_title('c.')
+fig, ax = plt.subplots(1, 3, figsize=(15, 5))
+results_severe_outcomes.plot_percentage_err(ax)
+ax[0].set_ylabel('Hospitalization percentage by age-group')
+ax[1].set_ylabel('ICU percentage by age-group')
+ax[2].set_ylabel('Deaths percentage by age-group')
 for axi in ax:
     axi.tick_params(axis='x', labelrotation=90)
     axi.set_xlabel('Age group')
+ax[0].set_title('a.')
+ax[1].set_title('b.')
+ax[2].set_title('c.')
 handles, labels = ax[2].get_legend_handles_labels()
-ax[2].legend(handles, labels, loc='upper left')
+fig.legend(handles, labels, bbox_to_anchor = (0.79, -0.02), ncol = 6)
 fig.savefig(FIG_PATH+'hosp_icu_death_percentages.png')
 
 fig, ax = plt.subplots(1, 3, figsize=(12, 4))
@@ -222,7 +222,7 @@ fig.savefig(FIG_PATH+'hosp_icu_death_counts_hist.png')
 fig, ax = plt.subplots()
 var = 'CFR'
 var_name = 'CFR'
-results_severe_outcomes.plot_rates(ax, var, var_name)
+results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
 fig.savefig(FIG_PATH + f'{var}.png')
@@ -231,16 +231,16 @@ fig.savefig(FIG_PATH + f'{var}.png')
 fig, ax = plt.subplots()
 var = 'HCR'
 var_name = 'HCR'
-results_severe_outcomes.plot_rates(ax, var, var_name)
+results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
 fig.savefig(FIG_PATH + f'{var}.png')
 
 # HCR - I
 fig, ax = plt.subplots()
-var = 'HCR_I'
-var_name = 'HCR - ICU'
-results_severe_outcomes.plot_rates(ax, var, var_name)
+var = 'ICU-CR'
+var_name = 'ICU-CR'
+results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
 fig.savefig(FIG_PATH + f'{var}.png')
@@ -249,16 +249,16 @@ fig.savefig(FIG_PATH + f'{var}.png')
 fig, ax = plt.subplots()
 var = 'HFR'
 var_name = 'HFR'
-results_severe_outcomes.plot_rates(ax, var, var_name)
+results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
 fig.savefig(FIG_PATH + f'{var}.png')
 
 # HFR - I
 fig, ax = plt.subplots()
-var = 'HFR_I'
-var_name = 'HFR - ICU'
-results_severe_outcomes.plot_rates(ax, var, var_name)
+var = 'ICU-FR'
+var_name = 'ICU-FR'
+results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
 fig.savefig(FIG_PATH + f'{var}.png')

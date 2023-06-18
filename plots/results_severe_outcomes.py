@@ -43,24 +43,23 @@ def plot_xyvar(df, ax, n_strat, varx='age_group', vary='percentage'):
 # Wave cases percentage distribution by age group
 def plot_percentage(ax):
     vary = 'percentage'
-    strat_list = df_hosp_perc[strat].unique()
+    strat_list = df_percentages[strat].unique()
     for n_strat in strat_list:
-        plot_xyvar(df_hosp_perc, ax=ax[0], n_strat=n_strat, vary=vary)
-        plot_xyvar(df_icu_perc, ax=ax[1], n_strat=n_strat, vary=vary)
-        plot_xyvar(df_death_perc, ax=ax[2], n_strat=n_strat, vary=vary)
+        plot_xyvar(df_percentages[[strat, 'age_group', 'HOSP-%']], ax=ax[0], n_strat=n_strat, vary='HOSP-%')
+        plot_xyvar(df_percentages[[strat, 'age_group', 'ICU-%']], ax=ax[1], n_strat=n_strat, vary='ICU-%')        
+        plot_xyvar(df_percentages[[strat, 'age_group', 'DEATH-%']], ax=ax[2], n_strat=n_strat, vary='DEATH-%')
 
 # Wave counts by age group
 def plot_counts(ax):
-    strat_list = df_hosp_perc[strat].unique()
-    vary = 'counts'
+    strat_list = df_ratios[strat].unique()
     for axi in ax:
         axi.tick_params(axis='x', labelrotation=90)
-        axi.set_ylabel(vary)
+        axi.set_ylabel('cases')
         axi.set_xlabel('age group')
     for wave in strat_list:
-        plot_xyvar(df_hosp_perc, ax=ax[0], n_strat=wave, vary=vary)
-        plot_xyvar(df_icu_perc, ax=ax[1], n_strat=wave, vary=vary)
-        plot_xyvar(df_death_perc, ax=ax[2], n_strat=wave, vary=vary)
+        plot_xyvar(df_ratios[[strat, 'age_group','hosp']], ax=ax[0], n_strat=wave, vary='hosp')
+        plot_xyvar(df_ratios[[strat, 'age_group', 'icu']], ax=ax[1], n_strat=wave, vary='icu')
+        plot_xyvar(df_ratios[[strat, 'age_group', 'deaths']], ax=ax[2], n_strat=wave, vary='deaths')
 
 # Stacked histogram of cases by wave and age group
 def plot_stacked_histogram(df, ax, strat=strat, group_var='age_group', vary='counts', pallete='VanGogh1'): 
@@ -79,9 +78,9 @@ def plot_stacked_histogram(df, ax, strat=strat, group_var='age_group', vary='cou
 
 def plot_counts_histograms(ax, strat=strat, group_var='age_group', vary='counts'):
 
-    plot_stacked_histogram(df = df_hosp_perc, ax=ax[0], strat=strat, group_var=group_var, vary=vary)
-    plot_stacked_histogram(df = df_icu_perc, ax=ax[1], strat=strat, group_var=group_var, vary=vary)
-    plot_stacked_histogram(df = df_death_perc, ax=ax[2], strat=strat, group_var=group_var, vary=vary)
+    plot_stacked_histogram(df = df_ratios[[strat, 'age_group','hosp']], ax=ax[0], strat=strat, group_var=group_var, vary='hosp')
+    plot_stacked_histogram(df = df_ratios[[strat, 'age_group','icu']], ax=ax[1], strat=strat, group_var=group_var, vary='icu')
+    plot_stacked_histogram(df = df_ratios[[strat, 'age_group','deaths']], ax=ax[2], strat=strat, group_var=group_var, vary='deaths')
 
 
 # Proportion histogram with binomial confidence interval
