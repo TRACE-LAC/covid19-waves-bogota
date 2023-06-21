@@ -16,12 +16,15 @@ config <- config::get('PATHS')
 DATA_PATH = config$DATA_PATH
 OUT_PATH = config$OUT_PATH %>% str_replace('\\{dir\\}', 'rt')
 
+config <- config::get('UPDATE_DATES')
+UPDATE = config$CONFIRMED_CASES
+
 # parameters 
 incubation_period <- 5
 rt_window <- 14
 
 # read data
-df_confirmed_bogota <- read_csv(paste0(DATA_PATH, 'confirmed_cases.csv'))
+df_confirmed_bogota <- read_csv(paste0(DATA_PATH, 'confirmed_cases_', UPDATE,'.csv'))
 df_confirmed_bogota <- df_confirmed_bogota[, c('onset', 'age', 'age_unit', 'contagion_source')]
 df_confirmed_bogota$onset <- as.Date(df_confirmed_bogota$onset)
 df_confirmed_bogota$infection <- df_confirmed_bogota$onset - incubation_period

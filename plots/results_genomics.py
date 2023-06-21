@@ -16,6 +16,7 @@ from met_brewer import met_brew
 
 config = yaml.load(open("config.yml", "r"))["default"]
 
+UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'genomics')
 DATE_GENOMICS = config['UPDATE_DATES']['GENOMICS']
@@ -41,7 +42,7 @@ df_results = df_results.merge(df_pivot[['week', 'week_name']], on = 'week')
 df_results['week_date'] = df_results.week_name.apply(lambda date: datetime.strptime(date + '-1', "%Y-%W-%w"))
 df_results = df_results.sort_values(by = 'week_date')
 ## Cases
-df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases.csv')
+df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases_' + UPDATE + '.csv')
 df_confirmed_bogota = df_confirmed_bogota.astype({'age':int})
 df_confirmed_bogota['onset'] = pd.to_datetime(df_confirmed_bogota['onset'], errors='coerce')
 df_confirmed_bogota['death'] = pd.to_datetime(df_confirmed_bogota['death'], errors='coerce')

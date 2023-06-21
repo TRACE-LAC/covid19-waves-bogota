@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 config = yaml.load(open("config.yml", "r"))["default"]
 
 #Paths 
+UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 DATA_PATH = config['PATHS']['DATA_PATH']
 # WE NEED TO UNIFY THE UTILITIES
 UTILS_PATH = config['PATHS']['UTILS_PATH'].format(dir = 'severe_outcomes')
@@ -27,7 +28,7 @@ sys.path.append(UTILS_PATH)
 import utilities_severity as ut
 
 # Read data
-df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases.csv')
+df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases_' + UPDATE + '.csv')
 df_confirmed_bogota = df_confirmed_bogota.astype({'age':int})
 
 df_confirmed_bogota['onset'] = pd.to_datetime(df_confirmed_bogota['onset'], errors='coerce')
@@ -70,7 +71,7 @@ df.dropna(subset=['age_group'], inplace=True)
 
 ## Conditions
 mask_60p = (df['age_group']=='60+')
-mask_death = (df['death'].notnull())
+mask_death = (df['death'].notnull()) & ~(df_confirmed_bogota['condition'] =='Fallecido (No aplica No causa Directa)')
 
 df_cases_all = ut.counts(df, var='onset',columns=['date', 'cases'])
 df_cases_60p = ut.counts(df[mask_60p], var='onset', columns=['date', 'cases'])

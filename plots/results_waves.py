@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 config = yaml.load(open("config.yml", "r"))["default"]
 
+UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'waves')
 UTILS_PATH = config['PATHS']['UTILS_PATH'].format(dir = 'waves')
@@ -26,7 +27,7 @@ sys.path.append(UTILS_PATH)
 import utilities_waves as ut
 
 # Read confirmed cases and waves information
-df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases.csv')
+df_confirmed_bogota = pd.read_csv(DATA_PATH + 'confirmed_cases_' + UPDATE + '.csv')
 df_confirmed_bogota['onset'] = pd.to_datetime(df_confirmed_bogota['onset'], errors='coerce')
 
 df_waves = pd.read_csv(OUT_PATH + 'waves.csv')
