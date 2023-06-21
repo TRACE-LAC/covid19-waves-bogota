@@ -71,7 +71,7 @@ df.dropna(subset=['age_group'], inplace=True)
 
 ## Conditions
 mask_60p = (df['age_group']=='60+')
-mask_death = (df['death'].notnull()) & ~(df_confirmed_bogota['condition'] =='Fallecido (No aplica No causa Directa)')
+mask_death = (df['death'].notnull()) & ~(df['condition'] =='Fallecido (No aplica No causa Directa)')
 
 df_cases_all = ut.counts(df, var='onset',columns=['date', 'cases'])
 df_cases_60p = ut.counts(df[mask_60p], var='onset', columns=['date', 'cases'])
