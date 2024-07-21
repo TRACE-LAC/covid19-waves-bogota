@@ -33,7 +33,7 @@ legend.loc: best #upper right
 figure.autolayout: True
 
 #Saving
-savefig.dpi:  100
+savefig.dpi:  300
 savefig.bbox: tight
 savefig.transparent: False
 savefig.facecolor: white

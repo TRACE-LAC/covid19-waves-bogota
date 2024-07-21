@@ -54,6 +54,7 @@ def plot_cdf(df, epi_dist, max_val, ax, cdf_null_hyp, n, n_subset = None, subset
     else:
         data = df.loc[df[epi_dist]<=max_val][epi_dist]   
         ext = ''
+    data = data + 0.5
     data_sorted = np.sort(np.array(data.drop_duplicates()))
     #get cdf from obs data
     count, bins_count = np.histogram(data, bins=len(data_sorted))  
@@ -97,6 +98,7 @@ def plot_dist(n_df, epi_dist, max_val, ax, n_subset = None, subset = 'wave',
             max_val = data.max()
             data = df.loc[(df[subset] == n_subset) & (df[epi_dist]<=max_val)][epi_dist]
         ext = ''
+    data = data + 0.5
     data_sorted = np.sort(np.array(data.drop_duplicates()))
     params = dist_posteriors[epi_dist]      
     bins = int(max_val/bin_unit)

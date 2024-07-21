@@ -53,4 +53,4 @@ axi.set_xlabel('')
 axi.set_ylabel('Prevalence')
 axi.set_title('d.', loc = 'left')
 
-fig.savefig(FIG_PATH + 'figure_1.png')
+fig.savefig(FIG_PATH + 'figure_1.jpg')

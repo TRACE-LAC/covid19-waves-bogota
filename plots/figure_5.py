@@ -36,7 +36,7 @@ leglabels= ['Wave 1',
             'Wave 4',
            ]
 ax.legend(leglabels, bbox_to_anchor=(0.75, -0.15), ncol=5)
-fig.savefig(FIG_PATH + 'figure_5_v0.png')
+fig.savefig(FIG_PATH + 'figure_5_v0.jpg')
 ########### ########### ###########
 ###########   Option 1  ###########
 ########### ########### ###########
@@ -71,7 +71,7 @@ ax.legend(labels, bbox_to_anchor=(0.95, -0.15), ncol=5)
 
 fig.tight_layout()
 fig.show()
-fig.savefig(FIG_PATH + 'figure_5_v1.png')
+fig.savefig(FIG_PATH + 'figure_5_v1.jpg')
 
 ########### ########### ###########
 ###########   Option 2  ###########
@@ -113,4 +113,4 @@ ax[2][1].set_ylabel('')
 ax[3][1].set_ylabel('')
 ax[4][1].set_ylabel('')
 
-fig.savefig(FIG_PATH + 'figure_5_v2.png')
+fig.savefig(FIG_PATH + 'figure_5_v2.jpg')

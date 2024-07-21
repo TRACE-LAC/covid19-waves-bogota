@@ -34,7 +34,7 @@ import results_genomics as results_genomics
 # Multinomial
 fig, ax = plt.subplots()
 results_genomics.plot_multinomial(ax, ['2021-12', '2022-30'])
-fig.savefig(FIG_PATH + 'variants_multinomial.png')
+fig.savefig(FIG_PATH + 'variants_multinomial.jpg')
 
 # Prevalence
 fig, ax = plt.subplots(figsize = (7.5,5))
@@ -42,7 +42,7 @@ results_genomics.plot_prevalence(ax)
 ax.set_xlabel('')
 ax.set_ylabel('Prevalence')
 ax.tick_params(axis = 'x', rotation = 90)
-fig.savefig(FIG_PATH + 'variants_prevalence_' + DATE_GENOMICS + '.png')
+fig.savefig(FIG_PATH + 'variants_prevalence_' + DATE_GENOMICS + '.jpg')
 
 #################################### ####################################
 ################################# RT ####################################
@@ -56,7 +56,7 @@ ax.set_xlabel('')
 ax.set_ylabel('R(t)') 
 ax.set_ylim(top=2.3)
 ax.tick_params(axis='x', rotation=90)
-fig.savefig(FIG_PATH + 'rt.png')
+fig.savefig(FIG_PATH + 'rt.jpg')
 
 #################################### ####################################
 ############################## Overview #################################
@@ -70,12 +70,12 @@ ax.set_xlim(left=-260000)
 ax.set_xlabel('Cases')
 ax.set_ylabel('Age group')
 ax.legend()     
-fig.savefig(FIG_PATH + 'population_pyramid.png')
+fig.savefig(FIG_PATH + 'population_pyramid.jpg')
 
 # Cases and cum. death
 fig, ax = plt.subplots(figsize=(7.5, 5))
 overview.plot_cases_death_cum(ax)
-fig.savefig(FIG_PATH + 'cases_death_cum.png')
+fig.savefig(FIG_PATH + 'cases_death_cum.jpg')
 
 #################################### ####################################
 ############################### Waves ##################################
@@ -83,7 +83,7 @@ fig.savefig(FIG_PATH + 'cases_death_cum.png')
 import results_waves as results_waves
 fig, ax = plt.subplots(figsize = (15,5))
 results_waves.plot_waves(ax)
-fig.savefig(FIG_PATH + 'waves.png')
+fig.savefig(FIG_PATH + 'waves.jpg')
 
 #################################### ####################################
 #########################  Epi distributions ############################
@@ -175,7 +175,7 @@ results_epidist.plot_dist(n_df, epi_dist = var, max_val = max_val_plot,
 
 handles, labels = ax[0][0].get_legend_handles_labels()
 fig.legend(handles, labels, bbox_to_anchor = (0.99, -0.03), ncol = len(dist_list))
-fig.savefig(FIG_PATH + 'distributions.png')
+fig.savefig(FIG_PATH + 'distributions.jpg')
 
 #################################### ####################################
  #########################  Severe outcomes ############################
@@ -195,7 +195,7 @@ ax[1].set_title('b.')
 ax[2].set_title('c.')
 handles, labels = ax[2].get_legend_handles_labels()
 fig.legend(handles, labels, bbox_to_anchor = (0.79, -0.02), ncol = 6)
-fig.savefig(FIG_PATH+'hosp_icu_death_percentages.png')
+fig.savefig(FIG_PATH+'hosp_icu_death_percentages.jpg')
 
 fig, ax = plt.subplots(1, 3, figsize=(12, 4))
 results_severe_outcomes.plot_counts(ax)
@@ -204,7 +204,7 @@ ax[0].set_title('a.')
 ax[1].set_title('b.')
 ax[2].set_title('c.')
 fig.legend(handles, labels, bbox_to_anchor = (0.8, -0.03), ncol = len(labels)) 
-fig.savefig(FIG_PATH+'hosp_icu_death_counts.png')
+fig.savefig(FIG_PATH+'hosp_icu_death_counts.jpg')
 
 fig, ax = plt.subplots(1, 3, figsize=(12, 4))
 for axi in ax:
@@ -216,7 +216,7 @@ ax[0].set_title('a.')
 ax[1].set_title('b.')
 ax[2].set_title('c.')
 results_severe_outcomes.plot_counts_histograms(ax)
-fig.savefig(FIG_PATH+'hosp_icu_death_counts_hist.png') 
+fig.savefig(FIG_PATH+'hosp_icu_death_counts_hist.jpg') 
 
 # CFR
 fig, ax = plt.subplots()
@@ -225,7 +225,7 @@ var_name = 'CFR'
 results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
-fig.savefig(FIG_PATH + f'{var}.png')
+fig.savefig(FIG_PATH + f'{var}.jpg')
 
 # HCR
 fig, ax = plt.subplots()
@@ -234,7 +234,7 @@ var_name = 'HCR'
 results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
-fig.savefig(FIG_PATH + f'{var}.png')
+fig.savefig(FIG_PATH + f'{var}.jpg')
 
 # HCR - I
 fig, ax = plt.subplots()
@@ -243,7 +243,7 @@ var_name = 'ICU-CR'
 results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
-fig.savefig(FIG_PATH + f'{var}.png')
+fig.savefig(FIG_PATH + f'{var}.jpg')
 
 # HFR - I
 fig, ax = plt.subplots()
@@ -252,7 +252,7 @@ var_name = 'HFR'
 results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
-fig.savefig(FIG_PATH + f'{var}.png')
+fig.savefig(FIG_PATH + f'{var}.jpg')
 
 # HFR - I
 fig, ax = plt.subplots()
@@ -261,4 +261,4 @@ var_name = 'ICU-FR'
 results_severe_outcomes.plot_ratios(ax, var, var_name)
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels, loc='upper left',numpoints=1)
-fig.savefig(FIG_PATH + f'{var}.png')
+fig.savefig(FIG_PATH + f'{var}.jpg')

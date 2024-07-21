@@ -31,4 +31,4 @@ axi = ax[1]
 results_genomics.plot_heatmap(axi, n = 200)
 axi.set_title('b.')
 fig.tight_layout()
-fig.savefig(FIG_PATH + 'figure_2.png')
+fig.savefig(FIG_PATH + 'figure_2.jpg')
