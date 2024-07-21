@@ -15,7 +15,7 @@ UPDATE = config['UPDATE_DATES']['CONFIRMED_CASES']
 DATA_PATH = config['PATHS']['DATA_PATH']
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'waves')
 UTILS_PATH = config['PATHS']['UTILS_PATH'].format(dir = 'waves')
-# The roots were selected by visual inspection of /figures/roots_confirmed_cases.png 
+# The roots were selected by visual inspection of /figures/roots_confirmed_cases.jpg 
 # and set by default in config.yml
 b = config['WAVES']['GAUSSIAN_KERNEL'] 
 

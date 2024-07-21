@@ -9,7 +9,7 @@ import pandas as pd
 config = yaml.load(open("config.yml", "r"))["default"]
 
 OUT_PATH = config['PATHS']['OUT_PATH'].format(dir = 'waves')
-# The roots were selected by visual inspection of /figures/roots_confirmed_cases.png 
+# The roots were selected by visual inspection of /figures/roots_confirmed_cases.jpg 
 # and set by default in config.yml
 # We set 1st of March of 2020 as the default start date for the first wave
 DATES = config['WAVES']['ROOTS'] 

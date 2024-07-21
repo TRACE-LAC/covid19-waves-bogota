@@ -58,4 +58,4 @@ ax[1][0].set_ylabel('Case Fatality Ratio')
 ax[1][1].set_ylabel('Hospitalisation Fatality Ratio')
 ax[1][2].set_ylabel('ICU Fatality Ratio')
 
-fig.savefig(FIG_PATH + 'figure_3.png')
+fig.savefig(FIG_PATH + 'figure_3.jpg')
